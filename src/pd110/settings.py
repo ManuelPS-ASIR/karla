@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-^)oa-=dn37!g@$yzreqn*^0v!mowk4g)^wat6vq7a1^t^q615k
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "tu_email@gmail.com"
+EMAIL_HOST = "tupassword"
+EMAIL_HOST = 587
+EMAIL_HOST = True
 
 # Application definition
 
@@ -115,8 +119,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+import os
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, "static_pro", "static"),
+]
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "static_root")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "media_root")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
